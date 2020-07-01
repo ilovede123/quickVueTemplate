@@ -1,0 +1,20 @@
+{
+  "name": "quickvue2001",
+  "version": "1.0.1",
+  "description": "一个快速生成vue模板的工具",
+  "main": "./index.js",
+  "bin": {
+    "qfv2001": "./bin/qfv.js"
+  },
+  "scripts": {
+    "html": "",
+    "component": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [
+    "vue",
+    "js",
+    "html"
+  ]
+}
