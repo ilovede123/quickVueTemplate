@@ -2,8 +2,8 @@
 'use strict'
 const fs = require('fs');
 const path = require('path')
-let argv = process.argv;
-var styles = {
+let argv = process.argv;//控制台参数
+var styles = { //控制台输出的颜色
     'bold': ['\x1B[1m%s\x1B[22m'],
     'italic': ['\x1B[3m%s\x1B[23m'],
     'underline': ['\x1B[4m%s\x1B[24m'],
@@ -29,7 +29,7 @@ var styles = {
     'yellowBG': ['\x1B[43m%s\x1B[49m']
 };
 if (!argv[2]) {
-    throw new Error("缺少指定参数 请使用--html或者其它")
+    console.log(styles['red'][0], "\n error 缺少指定参数 请使用--html或者其它,missing params,please use '--html' or other directives ")
 }
 switch (argv[2]) {
     case '--html':
@@ -42,7 +42,7 @@ switch (argv[2]) {
         let fileName = argv[3] ? argv[3] + ".html" : "vue模板.html"//获取命令行的参数
         let filePath = path.resolve(createFilePath, fileName)
         //如果指定了-title参数
-        fileName = argv[4]=="-title" ? argv[5] : fileName
+        fileName = argv[4] == "-title" ? argv[5] : fileName
         //将命令行的名字替换模板<%=title%>
         htmlTem = htmlTem.toString().replace(reg, fileName)
         //查询文件是否存在
@@ -52,7 +52,7 @@ switch (argv[2]) {
         }
         fs.writeFile(filePath, htmlTem, function (err) {
             if (err) throw err
-            console.log(styles['green'][0], '创建成功--千锋edu')
+            console.log(styles['green'][0], 'success! 创建成功,get more infomation ilovede123@github.com')
         })
         break
 }
