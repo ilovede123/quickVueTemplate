@@ -27,14 +27,14 @@ var styles = {
     'redBG': ['\x1B[41m%s\x1B[49m'],
     'yellowBG': ['\x1B[43m%s\x1B[49m']
 };
-if(!argv[2]){
+if (!argv[2]) {
     throw new Error("缺少指定参数 请使用--html或者其它")
 }
 switch (argv[2]) {
     case '--html':
-        let htmlTem = fs.readFileSync(path.resolve(__dirname,"../lib/tem.html"))
+        let htmlTem = fs.readFileSync(path.resolve(__dirname, "../lib/tem.html"))
         let createFilePath = process.cwd() //获取当前命令行的路径
-        let fileName = argv[3] + ".html" || "vue模板.html"//获取命令行的参数
+        let fileName = argv[3] ? argv[3] + ".html" : "vue模板.html"//获取命令行的参数
         let filePath = path.resolve(createFilePath, fileName)
         //查询文件是否存在
         if (fs.existsSync(filePath)) {

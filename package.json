@@ -1,6 +1,6 @@
 {
   "name": "quickvue2001",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "一个快速生成vue模板的工具",
   "main": "./index.js",
   "bin": {
