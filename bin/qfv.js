@@ -33,9 +33,17 @@ if (!argv[2]) {
 switch (argv[2]) {
     case '--html':
         let htmlTem = fs.readFileSync(path.resolve(__dirname, "../lib/tem.html"))
+        let reg = /<%=([^>]*)%>/g //匹配仿ejs标签
+        let r = reg.exec(htmlTem.toString())
+        let dynamicParams = r[1]
+        // console.log(htmlTem.toString())
         let createFilePath = process.cwd() //获取当前命令行的路径
         let fileName = argv[3] ? argv[3] + ".html" : "vue模板.html"//获取命令行的参数
         let filePath = path.resolve(createFilePath, fileName)
+        //如果指定了-title参数
+        fileName = argv[4]=="-title" ? argv[5] : fileName
+        //将命令行的名字替换模板<%=title%>
+        htmlTem = htmlTem.toString().replace(reg, fileName)
         //查询文件是否存在
         if (fs.existsSync(filePath)) {
             console.log(styles['red'][0], "当前文件已存在,不要重复创建")
