@@ -2,7 +2,7 @@
 ## 使用 
 ## 1.安装到全局
 ```
-npm install quickVue2001 -g
+npm install quickvue2001 -g
 ```
 ## 2.使用 
 提供一个--html指令用于快速生成模板,减少上课不必要浪费的时间,
